@@ -1,0 +1,69 @@
+<ion-content>
+  <form [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Email Address<span class="require">*</span></ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of form_messages.email">
+          <div class="error-message"
+            *ngIf="myform.get('email').hasError(validation.type) && (myform.get('email').dirty || myform.get('email').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Password<span class="require">*</span></ion-label>
+        <ion-input type="password" formControlName="password" required placeholder="Enter password">
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of form_messages.password">
+          <div class="error-message"
+            *ngIf="myform.get('password').hasError(validation.type) && (myform.get('password').dirty || myform.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">confirm Password<span class="require">*</span></ion-label>
+        <ion-input type="password" formControlName="confpass" required placeholder="Confirm password">
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of form_messages.confpass">
+          <div class="error-message"
+            *ngIf="myform.get('confpass').hasError(validation.type) && (myform.get('confpass').dirty || myform.get('confpass').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Mobile Number<span class="require">*</span></ion-label>
+        <ion-input type="number" formControlName="number" placeholder="Enter mobile number"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of form_messages.number">
+          <div class="error-message"
+            *ngIf="myform.get('number').hasError(validation.type) && (myform.get('number').dirty || myform.get('number').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input type="text" formControlName="add1" placeholder="Address Lin 1"></ion-input>
+        <ion-input type="text" formControlName="add2" placeholder="Address Lin 2"></ion-input>
+        <ion-input type="text" formControlName="postcode" placeholder="Postcode"></ion-input>
+        <ion-input type="text" formControlName="state" placeholder="State"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button type="submit" color="success" expand="full">Register</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Message here</ion-label>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
