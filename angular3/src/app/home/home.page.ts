@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  
   public myform: FormGroup;
   public errorMessage: string = '';
 
